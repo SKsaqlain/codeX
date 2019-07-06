@@ -1,0 +1,48 @@
+<html>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type=text/javascript>
+
+			$(function()
+			 {
+			  $('a#execute').bind('click', function() 
+			  {
+				$.getJSON('/background_process', {
+				  code: $('textarea[name="code"]').val(),
+				  language:$('select[name="language"]').val(),
+
+				}, function(data) {
+					//alert(data.result);
+					data=data.result.split('\n').join('<br/>');
+				  $("#result").html(data);
+				});
+				return false;
+			  });
+			});
+
+
+			
+		</script>
+
+	<body>
+		<form >
+			<select name="language">
+				<option value="c">C</option>
+				<option value="python">PYTHON 2.7</option>
+				<option value="c++">C++</option>
+				<option value="java">JAVA</option> 
+
+			</select>
+			<h1>CODE EDITOR</h1>
+			
+			<textarea name="code" rows=40 cols=100 onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}">
+			</textarea>
+			<a href="#" id="execute">
+				<button>execute</button>
+			</a>
+		</form>
+
+		<h1>output</h1>
+		<p id="result"></p>
+	</body>
+</html>

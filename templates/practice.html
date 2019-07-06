@@ -1,0 +1,53 @@
+<html>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type=text/javascript>
+
+			$(function()
+			 {
+			  $('a#execute').bind('click', function() 
+			  {
+				$.getJSON('/background_process', {
+				  code: $('textarea[name="code"]').val(),
+				  language:$('select[name="language"]').val(),
+
+				}, function(data) {
+					//alert(data.result);
+					data=data.result.split('\n').join('<br/>');
+				  $("#result").html(data);
+				});
+				return false;
+			  });
+			});
+
+
+			
+		</script>
+
+	<body>
+		<form >
+			<div>
+				Please Choose Your Programming Language:
+			<select name="language">
+					<option value="c">C</option>
+					<option value="python">PYTHON 2.7</option>
+					<option value="c++">C++</option>
+					<option value="java">JAVA</option> 
+
+				</select>
+			</div>
+			<p><b>Note:</b>For Java do not declare a class, your program will automatically be encapsulated.</p>
+
+			<h1 style="text-align:center;font-family: Arial;">CODE EDITOR PRACTISE MODE</h1>
+			<div align=center>
+			<textarea name="code" rows=40 cols=100 style=" padding-top: 0;padding-left: 0;" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}">
+			</textarea></div>
+			<center><a href="#" id="execute">
+				<button style="background-color:#329929;color:white;border:none;border-radius:12px;padding:20px;font-size:16px;cursor:pointer">Execute</button>
+			</a></center>
+		</form>
+
+		<h1 style="text-align:center;font-family: Arial;">Output</h1>
+		<p id="result" style="text-align:left;font-family: Arial;"></p>
+	</body>
+</html>

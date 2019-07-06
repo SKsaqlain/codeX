@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Codex</title>
+</head>
+<body style="background-image:url(/static/index.jpeg);background-position: stretch;">
+	<div style="font-family:Arial; font-size: 40px;color:white;font-weight:bold;  position: fixed;
+  top: 50%;left: 50%;transform: translate(-50%, -50%); ">Welcome to CODEx.</div>
+	<div style="font-family:Arial; font-size: 16;color:white;  position: absolute;
+  top: 50%;left: 50%;transform: translate(-50%, 120%);">Test Yourself against problems or Practice your programming skills.</div>
+	<div style="color:white; border:12px;position: absolute;
+  top: 53%;left: 50%;transform: translate(-50%, 120%);">
+		<!-- <button onclick="login.html" style="background-color: green;color:white; border:12px;position: absolute;
+  top: 53%;left: 50%;transform: translate(-50%, 120%);padding:10px;cursor: pointer;">Login</button><br>
+		<button style="background-color: green;color:white; border:none;position: absolute;
+  top: 63%;left: 50%;transform: translate(-50%, 120%);padding:10px;cursor: pointer;" onclick="signup.html">Sign-up!</button>
+-->
+	
+	<form action='/login' method='get'>
+		<input type="submit" value="Login">
+		</form>
+
+		<form action='/signup' method='get'>
+			<input type="submit" value="Signup">
+		</form>
+	</div>
+
+</body>
+</html>

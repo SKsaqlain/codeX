@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title>Signup</title>
+	</head>
+	
+	<body>
+	  {% if error %}
+      <p><strong>Error:</strong> {{ error }}
+      {% endif %}
+
+		<form method="get" action="/signup_process">
+		<input type="text" name="username" placeholder="username"><br/>
+		<input type="password" name="password" placeholder="password"><br/>
+		<a href="#" id="login"><input type="submit" value="Signup"></a>
+		</form>
+	</body>
+</html>
